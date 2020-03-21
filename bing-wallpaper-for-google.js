@@ -1,7 +1,7 @@
 // ==UserScript==   
 // @name         Bing Wallpaper for Google
 // @namespace    https://github.com/Gowee
-// @version      0.1.6
+// @version      0.1.7
 // @description  Apply the Today on Bing wallpapers to the homepage of Google.
 // @author       Gowee <whygowe@gmail.com>
 // @match        https://www.google.com/
@@ -105,7 +105,6 @@
             // TODO: better flow structure?
             applyCopyrightTip();
         }
-        console.log(copyrightTip);
         console.log(`Bing Wallpaper: \n\t${copyright.notice}\n\t${copyright.url}`);
     }
 
