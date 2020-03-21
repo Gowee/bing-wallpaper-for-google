@@ -1,7 +1,7 @@
-// ==UserScript==
+// ==UserScript==   
 // @name         Bing Wallpaper for Google
 // @namespace    https://github.com/Gowee
-// @version      0.1.2
+// @version      0.1.3
 // @description  Apply the Today on Bing wallpapers to the homepage of Google.
 // @author       Gowee <whygowe@gmail.com>
 // @match        https://www.google.com/
@@ -75,24 +75,24 @@
 
     async function updateWallpaper() {
         const market = (window.hasOwnProperty("google") && google.kHL) || document.documentElement.lang;
+        console.log(`Market: ${market}`);
         let cachedWallpaper = JSON.parse((await GM.getValue("bing_wallpaper_cache")) || "null");
-        // console.log("cached:", cachedWallpaper);
         if (cachedWallpaper) {
             applyWallpaper(cachedWallpaper);
         }
-        const newWallpaper = await getBingWallpaper();
+        const newWallpaper = await getBingWallpaper(market);
         GM.setValue("bing_wallpaper_cache", JSON.stringify(newWallpaper));
         if (!cachedWallpaper || newWallpaper.url != cachedWallpaper.url) {
+            console.log("Bing wallpaper updated.");
             applyWallpaper(newWallpaper);
         }
     }
 
     async function applyWallpaper(wallpaper) {
-        console.log("applyWallpaper", wallpaper);
         let count = 0;
         while (!document.body) {
             if (count >= 15) {
-                throw Exception(`Failed to get document.body after ${count} times attempts.`);
+                throw Error(`Failed to get document.body after ${count} times attempts.`);
             }
             await new Promise((resolve) => { setTimeout(resolve, 30) });
             count += 1;
@@ -105,11 +105,12 @@
             // TODO: better flow structure?
             applyCopyrightTip();
         }
-        console.log(`Bing Wallpaper: \n\tCopyright by ${wallpaper.copyright.notice}`);
+        console.log(copyrightTip);
+        console.log(`Bing Wallpaper: \n\t${wallpaper.copyright.notice}`);
     }
 
     function applyCopyrightTip() {
-        console.log("applyCopyrightTip", copyright);
+        console.log(copyright);
         copyrightTip.href = copyright.url;
         copyrightTip.textContent = copyright.title;
         copyrightTip.title = copyright.notice;
@@ -118,15 +119,22 @@
     async function getBingWallpaper(market) {
         const response = await GM_fetch(`https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=${market}`);
         const payload = await response.json();
+        let copyrightUrl = payload.images[0].copyrightlink;
+        if ((new URL(copyrightUrl)).protocol === "javascript:") {
+            console.log("No accessible copyright URL found.");
+            copyrightUrl = "https://www.bing.com/";
+        }
+        console.log(payload.images[0]);
         const wallpaper = {
-            url: new URL(payload.images[0].url, "https://www.bing.com"),
+            url: (new URL(payload.images[0].url, "https://www.bing.com")).toString(),
             copyright: {
-                title: payload.images[0].title,
+                title: payload.images[0].title || payload.images[0].copyright,
                 notice: payload.images[0].copyright,
-                url: payload.images[0].copyrightlink
+                url: copyrightUrl
             }
         };
         return wallpaper;
     }
 
 }
+ 
