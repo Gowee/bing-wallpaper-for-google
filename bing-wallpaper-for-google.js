@@ -1,7 +1,7 @@
 // ==UserScript==   
 // @name         Bing Wallpaper for Google
 // @namespace    https://github.com/Gowee
-// @version      0.1.5
+// @version      0.1.6
 // @description  Apply the Today on Bing wallpapers to the homepage of Google.
 // @author       Gowee <whygowe@gmail.com>
 // @match        https://www.google.com/
@@ -106,11 +106,10 @@
             applyCopyrightTip();
         }
         console.log(copyrightTip);
-        console.log(`Bing Wallpaper: \n\t${wallpaper.copyright.notice}`);
+        console.log(`Bing Wallpaper: \n\t${copyright.notice}\n\t${copyright.url}`);
     }
 
     function applyCopyrightTip() {
-        console.log(copyright);
         copyrightTip.href = copyright.url;
         copyrightTip.textContent = copyright.title;
         copyrightTip.title = copyright.notice;
@@ -124,7 +123,6 @@
             console.log("No accessible copyright URL found.");
             copyrightUrl = "https://www.bing.com/";
         }
-        console.log(payload.images[0]);
         const wallpaper = {
             url: (new URL(payload.images[0].url, "https://www.bing.com")).toString(),
             copyright: {
