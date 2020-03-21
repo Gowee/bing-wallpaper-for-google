@@ -1,11 +1,11 @@
 // ==UserScript==   
 // @name         Bing Wallpaper for Google
 // @namespace    https://github.com/Gowee
-// @version      0.1.4
+// @version      0.1.5
 // @description  Apply the Today on Bing wallpapers to the homepage of Google.
 // @author       Gowee <whygowe@gmail.com>
 // @match        https://www.google.com/
-// @include      /^https?:\/\/www\.google(\.com?)?\.[a-z]{2}(\/(webhp(\?.*)?)?)?$/
+// @include      /^https?:\/\/www\.google(\.com?)?(\.[a-z]{2})?(\/(webhp)?(\?.*)?)?$/
 // @grant        GM.setValue
 // @grant        GM.getValue
 // @grant        GM_xmlhttpRequest
