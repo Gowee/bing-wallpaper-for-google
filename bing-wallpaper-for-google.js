@@ -1,7 +1,7 @@
 // ==UserScript==   
 // @name         Bing Wallpaper for Google
 // @namespace    https://github.com/Gowee
-// @version      0.1.7
+// @version      0.1.8
 // @description  Apply the Today on Bing wallpapers to the homepage of Google.
 // @author       Gowee <whygowe@gmail.com>
 // @match        https://www.google.com/
@@ -68,6 +68,11 @@
             background-position: -1519px -35px;
             opacity: 0.87777;
         }
+
+        .sfbg {
+            background: unset;
+        }
+
         `;
         document.documentElement.appendChild(style);
         return style;
@@ -91,10 +96,10 @@
     async function applyWallpaper(wallpaper) {
         let count = 0;
         while (!document.body) {
-            if (count >= 15) {
+            if (count >= 30) {
                 throw Error(`Failed to get document.body after ${count} times attempts.`);
             }
-            await new Promise((resolve) => { setTimeout(resolve, 30) });
+            await new Promise((resolve) => { setTimeout(resolve, 15) });
             count += 1;
         }
         document.body.style.backgroundImage = `url(${wallpaper.url})`;
