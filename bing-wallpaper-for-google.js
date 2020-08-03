@@ -1,7 +1,7 @@
 // ==UserScript==   
 // @name         Bing Wallpaper for Google
 // @namespace    https://github.com/Gowee
-// @version      0.1.8
+// @version      0.1.9
 // @description  Apply the Today on Bing wallpapers to the homepage of Google.
 // @author       Gowee <whygowe@gmail.com>
 // @match        https://www.google.com/
@@ -51,8 +51,8 @@
         }
 
         #fbar {
-            background: none;
-            border: none;
+            background: none !important;
+            border: none !important;
         }
 
         .bing-wallpaper-copyright-wrapper {
@@ -70,7 +70,7 @@
         }
 
         .sfbg {
-            background: unset;
+            background: unset !important;
         }
 
         `;
