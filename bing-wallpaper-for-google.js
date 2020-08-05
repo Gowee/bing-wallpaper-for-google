@@ -1,7 +1,7 @@
-// ==UserScript==   
+// ==UserScript==
 // @name         Bing Wallpaper for Google
 // @namespace    https://github.com/Gowee
-// @version      0.1.9
+// @version      0.2.0
 // @description  Apply the Today on Bing wallpapers to the homepage of Google.
 // @author       Gowee <whygowe@gmail.com>
 // @match        https://www.google.com/
@@ -71,6 +71,11 @@
 
         .sfbg {
             background: unset !important;
+        }
+
+        /* https://stackoverflow.com/questions/12662759/make-white-background-of-image-transparent-in-css */
+        #hplogo img {
+            mix-blend-mode: multiply;
         }
 
         `;
