@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bing Wallpaper for Google
 // @namespace    https://github.com/Gowee
-// @version      0.2.0
+// @version      0.2.1
 // @description  Apply the Today on Bing wallpapers to the homepage of Google.
 // @author       Gowee <whygowe@gmail.com>
 // @match        https://www.google.com/
@@ -62,6 +62,13 @@
             background-color: rgba(0, 0, 0, 0.372);
             line-height: 32px;
             border-radius: 4px;
+        }
+
+        .bing-wallpaper-copyright-wrapper > a {
+            max-width: 35em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: bottom;
         }
 
         #gbwa > div > a {
