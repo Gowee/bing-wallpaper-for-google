@@ -14,6 +14,8 @@
 // @downloadURL none
 // ==/UserScript==
 
+// The script is now hosted on https://github.com/Gowee/bing-wallpaper-for-google/. Changes from git is synchronized to GreasyFork manually.
+
 {
     // TODO: better UI
     // TODO: next/previous wallpapers
