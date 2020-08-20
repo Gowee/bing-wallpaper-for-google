@@ -77,7 +77,7 @@
             opacity: 0.87777;
         }
 
-        .sfbg {
+        .sfbg, .c93Gbe {
             background: unset !important;
         }
 
