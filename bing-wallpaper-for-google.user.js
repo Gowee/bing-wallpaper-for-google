@@ -49,7 +49,7 @@
             background-size: cover;
         }
 
-        a, #SIvCob, .fbar span {
+        a, #SIvCob, .fbar span, [class$=middle-slot-promo] {
             color: #fff !important;
         }
 
