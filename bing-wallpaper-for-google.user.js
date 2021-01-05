@@ -65,6 +65,7 @@
             background-color: rgba(0, 0, 0, 0.372);
             line-height: 32px;
             border-radius: 4px;
+            margin: auto 0.5em auto 0.5em;
         }
 
         .bing-wallpaper-copyright-wrapper > a {
