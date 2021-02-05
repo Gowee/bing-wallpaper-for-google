@@ -23,7 +23,7 @@
     let copyrightTip = null;
 
     document.addEventListener("DOMContentLoaded", () => {
-        const fsr = document.getElementById("fsr");
+        const fsr = document.getElementById("fsr") || document.querySelector('[href^="https://policies.google.com/terms"]').parentElement;
         const wrapper = document.createElement("span");
         copyrightTip = document.createElement("a");
         wrapper.classList.add("bing-wallpaper-copyright-wrapper");
@@ -49,7 +49,10 @@
             background-size: cover;
         }
 
-        a, #SIvCob, .fbar span, [class$=middle-slot-promo] {
+        a, #SIvCob, .fbar span, [class$=middle-slot-promo], button,
+        [href^="https://policies.google.com/terms"] ~ * /* footer button */,
+        [href$="about/products"] svg /* top-right corner app button in alternative style set */
+        {
             color: #fff !important;
         }
 
@@ -73,6 +76,13 @@
             overflow: hidden;
             text-overflow: ellipsis;
             vertical-align: bottom;
+            /* There two sets of styles for Google homepage. Horizontal margins are set only in the case where #fsr is present. */
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .bing-wallpaper-copyright-wrapper + .pHiOh /* for the alternative style set */ {
+            margin-left: 12px;
         }
 
         #gbwa > div > a {
