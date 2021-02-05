@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bing Wallpaper for Google
 // @namespace    https://github.com/Gowee
-// @version      0.2.3
+// @version      0.2.4
 // @description  Apply the Today on Bing wallpapers to the homepage of Google.
 // @author       Gowee <whygowe@gmail.com>
 // @match        https://www.google.com/
