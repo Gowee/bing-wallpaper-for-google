@@ -103,11 +103,11 @@
         }
 
         #hptl a {
-            opacity: unset;
+            opacity: unset !important;
         }
 
         .uU7dJb {
-            border-bottom: unset;
+            border-bottom: unset !important;
         }
         `;
         document.documentElement.appendChild(style);
