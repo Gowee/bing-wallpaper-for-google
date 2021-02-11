@@ -109,7 +109,9 @@
     }
 
     async function updateWallpaper() {
-        const market = (window.hasOwnProperty("google") && google.kHL) || document.documentElement.lang;
+        const glang = window.hasOwnProperty("google") && google.kHL;
+        const plang = navigator.language; // plang is more specific
+        const market = plang.startsWith(glang || "") ? plang : glang;
         console.log(`Market: ${market}`);
         let cachedWallpaper = JSON.parse((await GM.getValue("bing_wallpaper_cache")) || "null");
         if (cachedWallpaper) {
@@ -150,6 +152,7 @@
     }
 
     async function getBingWallpaper(market) {
+        // TODO: Or just omit the market to let Bing determine that by itself?
         const response = await GM_fetch(`https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=${market}`);
         const payload = await response.json();
         let copyrightUrl = payload.images[0].copyrightlink;
