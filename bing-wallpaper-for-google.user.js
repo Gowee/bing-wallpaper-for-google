@@ -99,6 +99,10 @@
             mix-blend-mode: multiply;
         }
 
+        #hptl a {
+            opacity: unset;
+        }
+
         `;
         document.documentElement.appendChild(style);
         return style;
