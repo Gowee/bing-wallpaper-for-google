@@ -51,7 +51,8 @@
 
         a, #SIvCob, .fbar span, [class$=middle-slot-promo], button,
         [href^="https://policies.google.com/terms"] ~ * /* footer button */,
-        [href$="about/products"] svg /* top-right corner app button in alternative style set */
+        [href$="about/products"] svg /* top-right corner app button in alternative style set */,
+        .uU7dJb /* region indicator */
         {
             color: #fff !important;
         }
@@ -105,6 +106,9 @@
             opacity: unset;
         }
 
+        .uU7dJb {
+            border-bottom: unset;
+        }
         `;
         document.documentElement.appendChild(style);
         return style;
