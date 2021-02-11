@@ -68,17 +68,19 @@
             background-color: rgba(0, 0, 0, 0.372);
             line-height: 32px;
             border-radius: 4px;
-            margin: auto 0.5em auto 0.5em;
+            margin: auto 0.5rem auto 0.5rem;
         }
 
         .bing-wallpaper-copyright-wrapper > a {
-            max-width: 35em;
+            max-width: 28rem;
+            white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             vertical-align: bottom;
             /* There two sets of styles for Google homepage. Horizontal margins are set only in the case where #fsr is present. */
             margin-left: 10px;
             margin-right: 10px;
+            display: inline-block; /* necessary? */
         }
 
         .bing-wallpaper-copyright-wrapper + .pHiOh /* for the alternative style set */ {
