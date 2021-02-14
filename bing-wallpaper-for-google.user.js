@@ -98,7 +98,7 @@
         }
 
         /* https://stackoverflow.com/questions/12662759/make-white-background-of-image-transparent-in-css */
-        #hplogo img {
+        #hplogo img[src$=".gif"], img#hplogo[src$=".gif"] {
             mix-blend-mode: multiply;
         }
 
