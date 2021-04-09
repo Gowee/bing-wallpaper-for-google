@@ -1,7 +1,7 @@
 # Bing Wallpaper for Google
 Apply the "Today on Bing" wallpapers to the homepage of Google.
 
-![Sample screenshot](./screenshot2.jpg "A sample screenshot taken on Jan 1, 2020")
+![Sample screenshot](./screenshot3.jpg "A sample screenshot taken on Jan 1, 2020")
 
 ## Set up
 This is a standalone [user script](https://openuserjs.org/about/Userscript-Beginners-HOWTO) instead of a pre-packaged browser extension. 
