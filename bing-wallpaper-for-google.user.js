@@ -9,12 +9,12 @@
 // @grant        GM.setValue
 // @grant        GM.getValue
 // @grant        GM_xmlhttpRequest
-// @require      https://gitcdn.xyz/repo/mitchellmebane/GM_fetch/e9f8aa00af862665625500e2c2459840084226b4/GM_fetch.js
+// @require      https://greasyfork.org/scripts/421384-gm-fetch/code/GM_fetch.js?version=898562
 // @run-at       document-start
 // @downloadURL none
 // ==/UserScript==
 
-// The script is now hosted on https://github.com/Gowee/bing-wallpaper-for-google/. Changes from git is synchronized to GreasyFork manually.
+// The script is now hosted on https://github.com/Gowee/bing-wallpaper-for-google/. Changes from git is synchronized to GreasyFork automatically.
 
 {
     // TODO: better UI
